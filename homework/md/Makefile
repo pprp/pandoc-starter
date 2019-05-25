@@ -22,7 +22,7 @@
 #
 # ============================================================================
 
-TARGET=963
+TARGET=sample
 
 all: $(patsubst %.md,%.pdf,$(wildcard *.md))
 
@@ -32,7 +32,13 @@ PANDOC_FLAGS =\
 
 LATEX_FLAGS = \
 
+PANDOC_FLAGS += --variable mainfont="Droid Sans Fallback" \
+	--variable sansfont="Droid Sans Fallback" \
+	--variable monofont="Droid Sans Fallback" \
+	--variable fontsize=12pt \
+
 PDF_ENGINE = xelatex
+
 PANDOCVERSIONGTEQ2 := $(shell expr `pandoc --version | grep ^pandoc | sed 's/^.* //g' | cut -f1 -d.` \>= 2)
 ifeq "$(PANDOCVERSIONGTEQ2)" "1"
     LATEX_FLAGS += --pdf-engine=$(PDF_ENGINE)

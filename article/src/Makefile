@@ -30,6 +30,11 @@ PANDOC_FLAGS =\
 	-f markdown+tex_math_single_backslash \
 	-t latex \
 
+PANDOC_FLAGS += --variable mainfont="Droid Sans Fallback" \
+	--variable sansfont="Droid Sans Fallback" \
+	--variable monofont="Droid Sans Fallback" \
+	--variable fontsize=12pt \
+
 LATEX_FLAGS = \
 
 PDF_ENGINE = xelatex
